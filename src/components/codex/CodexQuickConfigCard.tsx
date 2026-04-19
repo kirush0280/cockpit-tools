@@ -256,20 +256,6 @@ export function CodexQuickConfigCard({ onClose }: { onClose?: () => void }) {
     t,
   ]);
 
-  const isDirty = useMemo(() => {
-    if (!loadedConfig) return false;
-    return (
-      detectedModelContextWindow !== targetConfig.modelContextWindow ||
-      detectedAutoCompactTokenLimit !== targetConfig.autoCompactTokenLimit
-    );
-  }, [
-    detectedAutoCompactTokenLimit,
-    detectedModelContextWindow,
-    loadedConfig,
-    targetConfig.autoCompactTokenLimit,
-    targetConfig.modelContextWindow,
-  ]);
-
   const previewText = useMemo(() => {
     const lines = [
       targetConfig.modelContextWindow == null
